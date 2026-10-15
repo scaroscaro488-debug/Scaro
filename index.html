@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" type="image/png" href="icon-192.png"><link rel="apple-touch-icon" href="apple-touch-icon.png"><meta name="theme-color" content="#0a0a0a"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-title" content="SCARO"><meta name="apple-mobile-web-app-status-bar-style" content="black">
+<title>SCARO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0a0a0a;--card:#161616;--ink:#f5f5f5;--mute:#a3a3a3;--line:#2c2c2c;--cobalt:#e11d2e;--on-cobalt:#fff;--green:#f5f5f5;--soft:#2a1114;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0a0a0a;--card:#161616;--ink:#f5f5f5;--mute:#a3a3a3;--line:#2c2c2c;--cobalt:#e11d2e;--on-cobalt:#fff;--green:#f5f5f5;--soft:#2a1114}}
+:root[data-theme="dark"]{--bg:#0a0a0a;--card:#161616;--ink:#f5f5f5;--mute:#a3a3a3;--line:#2c2c2c;--cobalt:#e11d2e;--on-cobalt:#fff;--green:#f5f5f5;--soft:#2a1114}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Bricolage Grotesque',system-ui,sans-serif;line-height:1.45}
+.wrap{max-width:560px;margin:0 auto;padding:16px}
+h1{font-size:1.9rem;font-weight:800;margin:4px 0 2px;letter-spacing:-.02em}
+.hero{background:var(--cobalt);color:var(--on-cobalt);border-radius:24px;padding:26px 22px 54px}.logo{font-size:3.4rem;font-weight:800;letter-spacing:.05em;line-height:1;display:flex;align-items:flex-end;gap:8px}.dot{width:14px;height:14px;background:var(--green);border-radius:3px;margin-bottom:9px;transform:rotate(45deg)}.tag{margin:10px 0 0;font-weight:600}.hero+.search{width:calc(100% - 28px);margin:-28px 14px 0;position:relative;box-shadow:0 6px 16px rgba(0,0,0,.14)}
+input,select,button{font:inherit;color:inherit}
+.search{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:12px;background:var(--card)}
+:focus-visible{outline:3px solid var(--cobalt);outline-offset:2px}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:12px 0}
+.chip{white-space:nowrap;padding:8px 14px;border-radius:999px;border:1.5px solid var(--line);background:var(--card);cursor:pointer}
+.chip[aria-pressed=true]{background:var(--cobalt);color:var(--on-cobalt);border-color:var(--cobalt)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.item{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;text-align:left;padding:0;cursor:pointer}
+.pic{height:112px;display:grid;place-items:center;font-size:3rem;background:var(--soft)!important}
+.info{padding:10px 12px 12px}
+.name{font-weight:600;font-size:.95rem}
+.price{display:inline-block;font-weight:800;background:var(--green);color:var(--card);border-radius:8px;padding:2px 9px;margin-top:4px}
+.meta{font-size:.8rem;color:var(--mute)}
+.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:28px 0}
+.fab{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--cobalt);color:var(--on-cobalt);border:0;border-radius:999px;padding:14px 20px;font-weight:800;box-shadow:0 6px 18px rgba(0,0,0,.25);cursor:pointer}
+dialog{border:0;border-radius:18px;padding:0;width:min(520px,94vw);background:var(--card);color:var(--ink)}
+dialog::backdrop{background:rgba(10,14,30,.55)}
+.sheet{padding:18px}
+.sheet h2{margin:0 0 8px}
+label{display:block;font-weight:600;margin:10px 0 4px}
+.f{width:100%;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg)}
+.btn{display:block;width:100%;text-align:center;padding:13px;border-radius:12px;border:0;font-weight:800;margin-top:10px;cursor:pointer;text-decoration:none}
+.b1{background:var(--cobalt);color:var(--on-cobalt)}
+.b2{background:var(--soft);color:var(--ink)}
+.note{background:var(--soft);border-radius:10px;padding:10px 12px;margin-top:10px;font-size:.9rem}
+.hero{position:relative}.gear{position:absolute;top:14px;right:14px;background:rgba(0,0,0,.28);border:0;border-radius:999px;width:42px;height:42px;font-size:1.2rem;cursor:pointer;color:#fff}:root[data-theme="light"]{color-scheme:light;--bg:#f4f4f4;--card:#fff;--ink:#141414;--mute:#666;--line:#dcdcdc;--green:#141414;--soft:#fdecee}.rate{font-size:.8rem;color:var(--mute);margin:10px 4px 0}.trk{padding:22px 0 6px}.road{position:relative;height:34px;margin-right:30px;border-bottom:3px dashed var(--cobalt)}.bike{position:absolute;bottom:2px;left:0;font-size:1.6rem;transition:left 1.8s linear}@media (prefers-reduced-motion:reduce){.bike{transition:none}}.toast{position:fixed;left:50%;bottom:90px;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:10px;display:none}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero"><button class="gear" id="gear" aria-label="Paramètres">⚙️</button><div class="logo">SCARO<span class="dot"></span></div><p class="tag" id="tagline">Achetez et vendez à Kolwezi.</p><button class="btn b2" id="inst" style="display:none;width:auto;padding:8px 16px">Installer SCARO</button><p class="tag" id="iosHint" style="display:none;font-size:.85rem;font-weight:400">Pour installer : touchez Partager, puis « Sur l'écran d'accueil ».</p></header>
+  
+  <input id="q" class="search" type="search" placeholder="Chercher un article" aria-label="Chercher un article"><div class="rate">1 $ = 2 265,67 FC · cours indicatif de la Banque centrale du Congo, 9 octobre 2026</div>
+  <div class="chips" id="chips"></div>
+  <div class="grid" id="grid"></div>
+</div>
+<button class="fab" id="sellBtn">Vendre un article</button>
+
+<dialog id="detail"><div class="sheet" id="detailBody"></div></dialog>
+
+<dialog id="sell"><div class="sheet">
+  <h2>Vendre un article</h2>
+  <label for="sName">Nom de l'article</label><input id="sName" class="f" maxlength="50">
+  <label for="sPrice">Prix en dollars (USD)</label><input id="sPrice" class="f" type="number" min="1" inputmode="decimal">
+  <label for="sPhoto">Photo de l'article</label><input id="sPhoto" class="f" type="file" accept="image/*"><img id="sPrev" alt="Aperçu de la photo" style="display:none;width:100%;max-height:160px;object-fit:cover;border-radius:10px;margin-top:8px"><label for="sCat">Catégorie</label><select id="sCat" class="f"></select>
+  <label for="sSeller">Votre nom ou boutique</label><input id="sSeller" class="f" maxlength="40">
+  <label for="sTel">Numéro WhatsApp (ex. 0991234567)</label><input id="sTel" class="f" inputmode="tel"><label for="sQ">Quartier ou adresse à Kolwezi</label><input id="sQ" class="f" maxlength="60"><button type="button" class="btn b2" id="sGps">Ajouter ma position GPS</button><div class="meta" id="gpsState">Facultatif. Visible par les acheteurs.</div>
+  <div class="note" id="gain">SCARO prend 7 % sur chaque vente. Entrez un prix pour voir ce que vous recevez.</div>
+  <button class="btn b1" id="sSave">Publier l'article</button>
+  <button class="btn b2" id="sClose">Annuler</button>
+</div></dialog>
+<dialog id="set"><div class="sheet" id="setBody"></div></dialog>
+<dialog id="gate"><div class="sheet" id="gateBody"></div></dialog>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+const COMMISSION=0.07;
+const ACC={Rouge:'#e11d2e',Bleu:'#2f6bff',Vert:'#0f8a4f',Orange:'#c75a00',Violet:'#7a3df0'};let cfg={name:'',acc:'Rouge',theme:'dark',size:'normal',price:'both'};try{Object.assign(cfg,JSON.parse(localStorage.getItem('scaro_cfg')||'{}'))}catch(e){}
+const pm=p=>cfg.price==='fc'?[fc(p),'']:cfg.price==='usd'?[esc(p)+' $','']:[esc(p)+' $','≈ '+fc(p)];
+const RATE=2265.67;const fc=p=>Math.round(p*RATE).toLocaleString('fr-FR')+' FC';
+const CATS=['Mode','Électronique','Beauté','Maison','Alimentation'];
+const SEED=[
+ {id:1,n:'Robe en pagne wax',p:25,c:'Mode',s:'Chez Mamie Grâce',t:'243990000001',e:'👗',bg:'#f6d9e6'},
+ {id:2,n:'Baskets homme taille 43',p:35,c:'Mode',s:'Dilala Sport',t:'243990000002',e:'👟',bg:'#d9e8f6'},
+ {id:3,n:'Téléphone Android 64 Go',p:120,c:'Électronique',s:'Tech Manika',t:'243990000003',e:'📱',bg:'#dcdff6'},
+ {id:4,n:'Chargeur rapide + câble',p:8,c:'Électronique',s:'Tech Manika',t:'243990000003',e:'🔌',bg:'#e0f0e4'},
+ {id:5,n:'Huile pour cheveux naturelle',p:6,c:'Beauté',s:'Beauté Naturelle',t:'243990000004',e:'🧴',bg:'#f6ecd0'},
+ {id:6,n:'Casserole inox 5 pièces',p:30,c:'Maison',s:'Maison Plus',t:'243990000005',e:'🍲',bg:'#e6e0f6'},
+ {id:7,n:'Sac de riz 25 kg',p:28,c:'Alimentation',s:'Marché Central',t:'243990000006',e:'🍚',bg:'#f1e8d9'},
+ {id:8,n:'Matelas 2 places',p:90,c:'Maison',s:'Maison Plus',t:'243990000005',e:'🛏️',bg:'#d9f0f0'}
+];
+const BGS=['#f6d9e6','#d9e8f6','#dcdff6','#e0f0e4','#f6ecd0','#e6e0f6'];
+const EMO={Mode:'👕','Électronique':'🎧',Beauté:'💄',Maison:'🏠',Alimentation:'🥭'};
+let items=[...SEED],cat='Tout',gps={};
+try{const s=JSON.parse(localStorage.getItem('soko_items')||'[]');if(Array.isArray(s))items=[...s,...SEED]}catch(e){}
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function toast(m){const t=$('toast');t.textContent=m;t.style.display='block';setTimeout(()=>t.style.display='none',2200)}
+function chips(){$('chips').innerHTML=['Tout',...CATS].map(c=>`<button class="chip" aria-pressed="${c===cat}" data-c="${esc(c)}">${esc(c)}</button>`).join('')}
+function grid(){
+ const q=$('q').value.trim().toLowerCase();
+ const l=items.filter(i=>(cat==='Tout'||i.c===cat)&&i.n.toLowerCase().includes(q));
+ $('grid').innerHTML=l.length?l.map(i=>`<button class="item" data-id="${i.id}"><div class="pic" style="background:${i.bg}">${i.img?'<img src="'+i.img+'" alt="'+esc(i.n)+'" style="width:100%;height:100%;object-fit:cover">':i.e}</div><div class="info"><div class="name">${esc(i.n)}</div><div class="price">${pm(i.p)[0]}</div><div class="meta">${pm(i.p)[1]}</div><div class="meta">${esc(i.s)}</div></div></button>`).join(''):'<div class="empty">Aucun article trouvé. Essayez une autre catégorie.</div>';
+}
+$('chips').onclick=e=>{const b=e.target.closest('.chip');if(!b)return;cat=b.dataset.c;chips();grid()};
+$('q').oninput=grid;
+$('grid').onclick=e=>{
+ const b=e.target.closest('.item');if(!b)return;
+ const i=items.find(x=>String(x.id)===b.dataset.id);if(!i)return;
+ const tel=String(i.t).replace(/\D/g,'').replace(/^0/,'243');
+ const msg=encodeURIComponent('Bonjour, je suis intéressé par : '+i.n+' ('+i.p+' $) sur SCARO.');
+ $('detailBody').innerHTML=`<div class="pic" style="background:${i.bg};border-radius:12px;height:150px;overflow:hidden">${i.img?'<img src="'+i.img+'" alt="'+esc(i.n)+'" style="width:100%;height:100%;object-fit:cover">':i.e}</div><h2 style="margin-top:12px">${esc(i.n)}</h2><div class="price" style="font-size:1.4rem">${pm(i.p)[0]}</div><div class="meta">${pm(i.p)[1]}</div><p class="meta">Vendu par ${esc(i.s)} · ${esc(i.q||'Kolwezi')} · ✓ Vendeur vérifié</p><a class="btn b1" href="https://wa.me/${tel}?text=${msg}" target="_blank" rel="noopener">Contacter sur WhatsApp</a><a class="btn b2" href="https://www.google.com/maps/search/?api=1&amp;query=${i.lat?encodeURIComponent(i.lat+','+i.lng):encodeURIComponent((i.q||'')+' Kolwezi')}" target="_blank" rel="noopener">Voir le vendeur sur la carte</a><div class="note">Paiement protégé : l'argent n'est remis au vendeur qu'après votre confirmation de réception. Ne payez jamais en dehors de SCARO.</div><button class="btn b2" id="pay">Payer par mobile money (démo)</button><button class="btn b2" id="track">Suivre ma livraison (démo)</button><button class="btn b2" id="dClose">Fermer</button>`;
+ $('detail').showModal();
+ $('dClose').onclick=()=>$('detail').close();
+ $('track').onclick=()=>{const st=['Commande confirmée','Le vendeur prépare le colis','Le livreur est en route','Livré'];let k=0;$('detailBody').innerHTML='<h2>Suivi de livraison</h2><div class="trk"><div class="road"><span class="bike" id="bike">🛵</span></div></div><p class="price" id="stt"></p><p class="meta">Démo : dans la vraie version, la position du livreur se met à jour en direct depuis son téléphone.</p><button class="btn b2" id="tClose">Fermer</button>';$('tClose').onclick=()=>$('detail').close();const step=()=>{$('stt').textContent=st[k];$('bike').style.left=(k*100/3)+'%';if(k<3){k++;setTimeout(step,2000)}};step()};
+ $('pay').onclick=()=>{$('detail').close();box(`<h2>Paiement protégé</h2><p class="meta">Confirmez avec votre code PIN. L'argent reste bloqué par SCARO et n'est remis au vendeur qu'après votre confirmation de réception.</p><input id="pPin" class="f" type="password" inputmode="numeric" maxlength="4" aria-label="Code PIN"><div class="meta" id="pErr"></div><button class="btn b1" id="pOk">Payer</button><button class="btn b2" id="pNo">Annuler</button>`,true);$('pOk').onclick=()=>checkPin($('pPin').value,$('pErr'),()=>{endBox();toast('Démo : le paiement M-Pesa, Airtel ou Orange Money sera branché ici.')});$('pNo').onclick=endBox};
+};
+$('sCat').innerHTML=CATS.map(c=>`<option>${c}</option>`).join('');
+$('sellBtn').onclick=()=>{if(acct&&acct.seller)$('sell').showModal();else verifySeller(()=>$('sell').showModal())};
+$('sClose').onclick=()=>$('sell').close();
+let photo='';
+$('sPhoto').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const k=Math.min(1,640/Math.max(im.width,im.height)),c=document.createElement('canvas');c.width=Math.round(im.width*k);c.height=Math.round(im.height*k);c.getContext('2d').drawImage(im,0,0,c.width,c.height);photo=c.toDataURL('image/jpeg',0.6);$('sPrev').src=photo;$('sPrev').style.display='block'};im.onerror=()=>toast('Photo illisible. Essayez une autre image.');im.src=r.result};r.readAsDataURL(f)};
+const AK='scaro_acct';let acct=null,canClose=false,fails=0,lockUntil=0;
+try{acct=JSON.parse(localStorage.getItem(AK)||'null')}catch(e){}
+const save=()=>{try{localStorage.setItem(AK,JSON.stringify(acct))}catch(e){}};
+async function hh(s){try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(s));return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){return btoa(unescape(encodeURIComponent(s)))}}
+$('gate').addEventListener('cancel',e=>{if(!canClose)e.preventDefault()});
+$('gate').addEventListener('close',()=>{if(!canClose)setTimeout(()=>$('gate').showModal(),0)});
+function box(html,cl){canClose=!!cl;$('gateBody').innerHTML=html;if(!$('gate').open)$('gate').showModal()}
+function endBox(){canClose=true;$('gate').close()}
+const lockMsg=()=>Date.now()<lockUntil?'Trop d’essais. Réessayez dans '+Math.ceil((lockUntil-Date.now())/1000)+' s.':'';
+async function checkPin(p,e,ok){const m=lockMsg();if(m){e.textContent=m;return}if(await hh(acct.salt+p)===acct.hash){fails=0;ok()}else{fails++;if(fails>=3){lockUntil=Date.now()+30000;fails=0}e.textContent=lockMsg()||'Code incorrect.'}}
+function createAcct(){
+ box(`<h2>Sécurisez votre compte SCARO</h2><p class="meta">Obligatoire pour acheter et vendre : un numéro de téléphone et un code PIN à 4 chiffres.</p><label for="gTel">Votre numéro de téléphone</label><input id="gTel" class="f" inputmode="tel"><label for="gPin">Créez un code PIN (4 chiffres)</label><input id="gPin" class="f" type="password" inputmode="numeric" maxlength="4" autocomplete="new-password"><label for="gPin2">Confirmez le code PIN</label><input id="gPin2" class="f" type="password" inputmode="numeric" maxlength="4" autocomplete="new-password"><div class="meta" id="gErr"></div><button class="btn b1" id="gOk">Créer mon compte sécurisé</button>`,false);
+ $('gOk').onclick=async()=>{const t=$('gTel').value.replace(/\D/g,''),a=$('gPin').value,b=$('gPin2').value,e=$('gErr');if(t.length<9){e.textContent='Entrez un numéro valide.';return}if(!/^\d{4}$/.test(a)){e.textContent='Le code doit avoir 4 chiffres.';return}if(a!==b){e.textContent='Les deux codes sont différents.';return}const salt=Math.random().toString(36).slice(2);acct={phone:t,salt,hash:await hh(salt+a),seller:false};save();endBox();toast('Compte sécurisé créé.')}}
+function unlock(){
+ box(`<h2>Entrez votre code PIN</h2><label for="uPin">Code PIN SCARO</label><input id="uPin" class="f" type="password" inputmode="numeric" maxlength="4" autocomplete="current-password"><div class="meta" id="uErr"></div><button class="btn b1" id="uOk">Ouvrir SCARO</button>`,false);
+ $('uOk').onclick=()=>checkPin($('uPin').value,$('uErr'),endBox)}
+function verifySeller(done){
+ const code=String(Math.floor(1000+Math.random()*9000));
+ box(`<h2>Vérification vendeur</h2><p class="meta">Obligatoire pour vendre. Un code est envoyé par SMS au ${esc(acct.phone)}.</p><div class="note">Démo : votre code est ${code}.</div><label for="vC">Code reçu par SMS</label><input id="vC" class="f" inputmode="numeric" maxlength="4"><div class="meta" id="vErr"></div><button class="btn b1" id="vOk">Valider</button><button class="btn b2" id="vNo">Annuler</button>`,true);
+ $('vOk').onclick=()=>{if($('vC').value===code){acct.seller=true;save();endBox();toast('Vendeur vérifié.');done()}else $('vErr').textContent='Code incorrect.'};
+ $('vNo').onclick=endBox}
+acct&&acct.hash?unlock():createAcct();
+function applyCfg(){const r=document.documentElement;r.style.setProperty('--cobalt',ACC[cfg.acc]||ACC.Rouge);r.setAttribute('data-theme',cfg.theme==='light'?'light':'dark');r.style.fontSize=cfg.size==='big'?'19px':'';$('tagline').textContent=(cfg.name?'Bonjour '+cfg.name+'. ':'')+'Achetez et vendez à Kolwezi.';grid()}
+function changePin(){box(`<h2>Changer mon code PIN</h2><label for="oPin">Ancien code</label><input id="oPin" class="f" type="password" inputmode="numeric" maxlength="4"><label for="nPin">Nouveau code (4 chiffres)</label><input id="nPin" class="f" type="password" inputmode="numeric" maxlength="4"><div class="meta" id="cErr"></div><button class="btn b1" id="cOk">Changer le code</button><button class="btn b2" id="cNo">Annuler</button>`,true);$('cNo').onclick=endBox;$('cOk').onclick=()=>checkPin($('oPin').value,$('cErr'),async()=>{const n=$('nPin').value;if(!/^\d{4}$/.test(n)){$('cErr').textContent='Le nouveau code doit avoir 4 chiffres.';return}acct.salt=Math.random().toString(36).slice(2);acct.hash=await hh(acct.salt+n);save();endBox();toast('Code PIN changé.')})}
+function wipe(){box(`<h2>Supprimer mes données</h2><p class="meta">Votre compte, vos articles et vos réglages seront effacés de ce téléphone. Entrez votre code PIN pour confirmer.</p><input id="wPin" class="f" type="password" inputmode="numeric" maxlength="4" aria-label="Code PIN"><div class="meta" id="wErr"></div><button class="btn b1" id="wOk">Tout supprimer</button><button class="btn b2" id="wNo">Annuler</button>`,true);$('wNo').onclick=endBox;$('wOk').onclick=()=>checkPin($('wPin').value,$('wErr'),()=>{try{['scaro_acct','soko_items','scaro_cfg'].forEach(k=>localStorage.removeItem(k))}catch(e){}location.reload()})}
+function openSet(){
+ const sel=(id,lab,opts,cur)=>`<label for="${id}">${lab}</label><select id="${id}" class="f">${opts.map(o=>`<option value="${o[0]}"${o[0]===cur?' selected':''}>${o[1]}</option>`).join('')}</select>`;
+ $('setBody').innerHTML=`<h2>Paramètres</h2><label for="cName">Votre nom</label><input id="cName" class="f" maxlength="30" value="${esc(cfg.name)}">`
+ +sel('cAcc','Couleur principale',Object.keys(ACC).map(k=>[k,k]),cfg.acc)
+ +sel('cTheme','Thème',[['dark','Sombre'],['light','Clair']],cfg.theme)
+ +sel('cSize','Taille du texte',[['normal','Normale'],['big','Grande']],cfg.size)
+ +sel('cPrice','Affichage des prix',[['both','Dollars et francs'],['usd','Dollars seulement'],['fc','Francs seulement']],cfg.price)
+ +`<button class="btn b1" id="cSave">Enregistrer</button><button class="btn b2" id="cPin">Changer mon code PIN</button><button class="btn b2" id="cLock">Verrouiller maintenant</button><button class="btn b2" id="cWipe">Supprimer mes données</button><button class="btn b2" id="cClose">Fermer</button><p class="meta">SCARO, version prototype.</p>`;
+ $('set').showModal();
+ $('cClose').onclick=()=>$('set').close();
+ $('cSave').onclick=()=>{cfg={name:$('cName').value.trim(),acc:$('cAcc').value,theme:$('cTheme').value,size:$('cSize').value,price:$('cPrice').value};try{localStorage.setItem('scaro_cfg',JSON.stringify(cfg))}catch(e){}applyCfg();$('set').close();toast('Réglages enregistrés.')};
+ $('cPin').onclick=()=>{$('set').close();changePin()};
+ $('cLock').onclick=()=>{$('set').close();unlock()};
+ $('cWipe').onclick=()=>{$('set').close();wipe()}}
+$('gear').onclick=openSet;
+applyCfg();
+(function(){
+ if('serviceWorker' in navigator)addEventListener('load',()=>navigator.serviceWorker.register('sw.js').catch(()=>{}));
+ let dip=null;addEventListener('beforeinstallprompt',e=>{e.preventDefault();dip=e;$('inst').style.display='inline-block'});
+ $('inst').onclick=()=>{if(dip){dip.prompt();dip=null;$('inst').style.display='none'}};
+ if(/iPhone|iPad/.test(navigator.userAgent)&&!navigator.standalone)$('iosHint').style.display='block';
+})();
+$('sGps').onclick=()=>{const s=$('gpsState');if(!navigator.geolocation){s.textContent='Position non disponible sur cet appareil.';return}s.textContent='Recherche de la position...';navigator.geolocation.getCurrentPosition(p=>{gps={lat:p.coords.latitude,lng:p.coords.longitude};s.textContent='Position ajoutée.'},()=>{s.textContent='Position refusée ou indisponible. écrivez le quartier à la place.'},{timeout:10000})};
+$('sPrice').oninput=()=>{const p=parseFloat($('sPrice').value);$('gain').textContent=p>0?`SCARO prend 7 % (${(p*COMMISSION).toFixed(2)} $). Vous recevez ${(p*(1-COMMISSION)).toFixed(2)} $ (≈ ${fc(p*(1-COMMISSION))}).`:'SCARO prend 7 % sur chaque vente. Entrez un prix pour voir ce que vous recevez.'};
+$('sSave').onclick=()=>{
+ const n=$('sName').value.trim(),p=parseFloat($('sPrice').value),s=$('sSeller').value.trim(),t=$('sTel').value.trim();
+ if(!n||!(p>0)||!s||t.replace(/\D/g,'').length<9){toast('Remplissez le nom, le prix, la boutique et le numéro.');return}
+ const c=$('sCat').value;
+ const it={id:Date.now(),n,p,c,s,t,img:photo,q:$('sQ').value.trim(),lat:gps.lat,lng:gps.lng,e:EMO[c]||'🛍️',bg:BGS[Math.floor(Math.random()*BGS.length)]};
+ items=[it,...items];
+ try{const mine=items.filter(x=>x.id>1e6);localStorage.setItem('soko_items',JSON.stringify(mine))}catch(e){toast('Mémoire pleine : l’article ne sera pas conservé.')}
+ ['sName','sPrice','sSeller','sTel','sQ'].forEach(k=>$(k).value='');gps={};photo='';$('sPhoto').value='';$('sPrev').style.display='none';$('gpsState').textContent='Facultatif. Visible par les acheteurs.';
+ $('sell').close();cat='Tout';chips();grid();toast('Article publié.');
+};
+chips();grid();
+</script>
+</body>
+</html>

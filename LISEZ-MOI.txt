@@ -1,0 +1,51 @@
+SCARO - DOSSIER A METTRE EN LIGNE
+=================================
+
+Ce dossier contient 7 fichiers + ce texte. Ils doivent rester ensemble,
+tous au meme niveau (pas de sous-dossier) :
+
+  index.html, manifest.webmanifest, sw.js,
+  icon-192.png, icon-512.png, icon-maskable-512.png, apple-touch-icon.png
+
+
+METTRE SCARO EN LIGNE GRATUITEMENT (depuis un telephone Android, avec GitHub Pages)
+------------------------------------------------------------------------------------
+
+0. Decompressez le fichier scaro-pwa.zip : application "Fichiers" -> Telechargements ->
+   appui long sur scaro-pwa.zip -> "Extraire" (ou "Decompresser").
+
+1. Dans Chrome, allez sur github.com et creez un compte gratuit
+   ("Sign up"). Confirmez votre adresse e-mail.
+   Retenez votre nom d'utilisateur (exemple : jean243).
+
+2. Creez un depot : bouton "+" en haut -> "New repository".
+   - Repository name : scaro
+   - Choisissez "Public"
+   - Touchez "Create repository"
+
+3. Sur la page du depot vide, touchez le lien "uploading an existing file".
+   Touchez "choose your files" et selectionnez les 7 fichiers
+   (index.html, manifest.webmanifest, sw.js et les 4 images .png).
+   Descendez et touchez "Commit changes".
+
+4. Activez la page web : onglet "Settings" -> menu "Pages".
+   Sous "Branch", choisissez "main" puis "/ (root)" et touchez "Save".
+   Attendez 1 a 2 minutes, puis rechargez la page.
+   Votre lien apparait en haut, sous la forme :
+        https://VOTRE-NOM.github.io/scaro/
+
+5. Ouvrez ce lien dans Chrome. Touchez les 3 points en haut a droite,
+   puis "Installer l'application". L'icone S entoure de rouge
+   apparait sur votre ecran d'accueil.
+
+
+A SAVOIR
+--------
+- Le lien est public : vous pouvez l'envoyer a vos vendeurs par WhatsApp.
+- Cette version est un PROTOTYPE : les comptes, articles et photos sont gardes
+  uniquement sur le telephone de chaque personne. Pour que tous les habitants de
+  Kolwezi voient les memes articles, il faudra ajouter un serveur (etape suivante).
+- Votre compte et vos articles faits dans la conversation Claude ne sont pas
+  copies ici : sur le nouveau lien, vous recommencez avec un compte neuf.
+- Pour modifier SCARO plus tard, revenez dans Claude : je prepare un nouveau
+  dossier et vous remplacez les fichiers dans GitHub ("Add file" -> "Upload files").
